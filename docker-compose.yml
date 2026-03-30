@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: smart-parking-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: smart_parking
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - smart-parking-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  smart-parking-postgres-data:

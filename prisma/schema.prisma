@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ParkingSpotType {
+  street
+  garage
+  private
+}
+
+enum RestrictionType {
+  street_cleaning
+  permit
+  meter
+}
+
+enum ParkingSessionStatus {
+  pending
+  active
+  completed
+  expired
+  cancelled
+}
+
+model ParkingSpot {
+  id           Int              @id @default(autoincrement())
+  latitude     Float
+  longitude    Float
+  isAvailable  Boolean          @default(true)
+  type         ParkingSpotType
+  pricePerHour Decimal          @db.Decimal(10, 2)
+  streetName   String
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  predictions  Prediction[]
+  sessions     ParkingSession[]
+
+  @@index([latitude, longitude])
+  @@index([streetName])
+  @@index([type, isAvailable])
+}
+
+model ParkingRule {
+  id              Int             @id @default(autoincrement())
+  streetName      String
+  restrictionType RestrictionType
+  activeDays      String[]
+  startTime       String
+  endTime         String
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@index([streetName])
+}
+
+model Prediction {
+  id                    Int         @id @default(autoincrement())
+  spotId                Int
+  predictedAvailability Boolean
+  confidence            Float
+  timestamp             DateTime    @default(now())
+  spot                  ParkingSpot @relation(fields: [spotId], references: [id], onDelete: Cascade)
+
+  @@index([spotId, timestamp])
+}
+
+model ParkingSession {
+  id              Int                  @id @default(autoincrement())
+  spotId          Int
+  amountPaid      Decimal              @db.Decimal(10, 2)
+  status          ParkingSessionStatus @default(pending)
+  stripeSessionId String?              @unique
+  startTime       DateTime?
+  endTime         DateTime?
+  expiresAt       DateTime
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  spot            ParkingSpot          @relation(fields: [spotId], references: [id], onDelete: Cascade)
+
+  @@index([spotId, status])
+  @@index([expiresAt])
+}
+
+model ApiKey {
+  id          String    @id @default(uuid())
+  key         String    @unique
+  email       String
+  customerId  String
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+}

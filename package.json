@@ -1,0 +1,54 @@
+{
+  "name": "smart-parking-api",
+  "version": "1.0.0",
+  "description": "Production-ready Smart Parking API with Prisma, PostgreSQL, Stripe Checkout, Socket.io, and simulated real-time availability updates.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "dev:web": "vite",
+    "build:web": "vite build",
+    "preview:web": "vite preview",
+    "seed": "node scripts/seed.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init"
+  },
+  "keywords": [
+    "smart-parking",
+    "express",
+    "postgresql",
+    "prisma",
+    "socket.io",
+    "stripe"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^8.0.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "stripe": "^18.0.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.6.0",
+    "vite": "^6.2.0"
+  }
+}
