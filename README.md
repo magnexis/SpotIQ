@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/License-Open%20Source-1f6feb)
 ![Stripe](https://img.shields.io/badge/Stripe-Enabled-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
 
-Smart Parking API is a production-ready full-stack parking platform for finding nearby parking, reading street rules, predicting availability from historical patterns, streaming live availability updates, collecting pay-per-session parking payments with Stripe Checkout and webhooks, and rendering a real-time parking heatmap on a React + Leaflet map.
+Smart Parking API or SpotIQ is a production-ready full-stack parking platform for finding nearby parking, reading street rules, predicting availability from historical patterns, streaming live availability updates, collecting pay-per-session parking payments with Stripe Checkout and webhooks, and rendering a real-time parking heatmap on a React + Leaflet map.
 
 The platform is also meant for developers. Access is protected with API key verification, and the system now sends confirmation emails when a developer API key is issued so teams can verify access and onboard faster.
 
