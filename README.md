@@ -3,8 +3,11 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript&logoColor=000000)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-3DA639?logo=opensourceinitiative&logoColor=ffffff)
 ![License](https://img.shields.io/badge/License-Open%20Source-1f6feb)
+![Stripe](https://img.shields.io/badge/Stripe-Enabled-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
 
 Smart Parking API is a production-ready full-stack parking platform for finding nearby parking, reading street rules, predicting availability from historical patterns, streaming live availability updates, collecting pay-per-session parking payments with Stripe Checkout and webhooks, and rendering a real-time parking heatmap on a React + Leaflet map.
+
+The platform is also meant for developers. Access is protected with API key verification, and the system now sends confirmation emails when a developer API key is issued so teams can verify access and onboard faster.
 
 ## Features
 
@@ -17,6 +20,8 @@ Smart Parking API is a production-ready full-stack parking platform for finding 
 - Manual parking session completion endpoint
 - Real-time Socket.io updates for reservation, occupancy, and release changes
 - Real-time parking heatmap overlay for the React + Leaflet map UI
+- Developer API key verification for protected platform access
+- Confirmation emails when developer API keys are created
 - Rate limiting, Helmet, Morgan, and CORS defaults
 
 ## Tech Stack
@@ -30,6 +35,8 @@ Smart Parking API is a production-ready full-stack parking platform for finding 
 - leaflet.heat
 - Stripe Checkout Sessions
 - Stripe Webhooks
+- Developer API key authentication
+- Email notifications for developer key confirmation
 - Socket.io
 - dotenv
 - cors
