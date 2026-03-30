@@ -330,6 +330,10 @@ curl -X POST http://localhost:3000/parking/end-session \
   -H "Content-Type: application/json" \
   -d '{"sessionId":9}'
 ```
+## SpotIQ Website
+
+[Visit SpotIQ](https://spotiq.carrd.co/)
+
 
 ## Stripe Webhook Flow
 
