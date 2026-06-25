@@ -13,11 +13,11 @@ const { errorHandler, notFoundHandler } = require('./middleware/error.middleware
 const {requireApiKey} = require('./middleware/apikey.middleware');
 
 //Protect all parking routes with API key middleware
+const app = express();
+
 app.use('/api/parking', requireApiKey, parkingRoutes);
 app.use('/api/heatmap', requireApiKey, heatmapRoutes);
 app.use('/api/prediction', requireApiKey, predictionRoutes);
-
-const app = express();
 
 const apiLimiter = rateLimit({
   windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000),

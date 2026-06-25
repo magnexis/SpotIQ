@@ -1,4 +1,4 @@
-const { provisionApiKey } = require('../services/apiKey.service');
+const { provisionApiKey } = require('../services/apikeyservice');
 const { getStripeClient, getWebhookSecret } = require('../config/stripe');
 const {
   activateParkingSession,
